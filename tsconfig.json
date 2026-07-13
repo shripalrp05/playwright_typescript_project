@@ -1,8 +1,23 @@
 {
   // Visit https://aka.ms/tsconfig to read more about this file
   "compilerOptions": {
+    "types": ["node"],
+
+    "outDir": "./dist",
+    "rootDir": "src",
+
+    "noEmitOnError": true,
+
     "target": "ES2022",
     "module": "NodeNext",
-    "moduleResolution": "NodeNext"  
-  }
+    "moduleResolution": "NodeNext",
+    "strict": true,
+
+  },
+
+  //Specifying the files to include in the compilation process. In this case, we are including all TypeScript files in the src folder and its subfolders.
+  "include": ["src/**/*.ts"],
+
+  //Excluding node_modules and dist folders from compilation to speed up the build process.
+  "exclude": ["node_modules", "dist"]
 }
