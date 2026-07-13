@@ -4,29 +4,33 @@ import { Config } from '../../core/config/Config';
 export class BaseApiClient {
     constructor(protected request: APIRequestContext) {}
 
-    protected async get(endpoint: string){
-        return this.request.get(
+    protected async get<T>(endpoint: string): Promise<T> {
+        const response = await this.request.get(
             `${Config.apiBaseUrl}${endpoint}`
         );
+        return await response.json() as Promise<T>;
     }
 
-    protected async delete(endpoint: string) {
-        return this.request.delete(
+    protected async delete<T>(endpoint: string): Promise<T> {
+        const response = await this.request.delete(
             `${Config.apiBaseUrl}${endpoint}`
         );
+        return await response.json() as Promise<T>;
     }
 
-    protected async post(endpoint: string, body: unknown) {
-        return this.request.post(
+    protected async post<T>(endpoint: string, body: unknown): Promise<T> {
+        const response = await this.request.post(
             `${Config.apiBaseUrl}${endpoint}`,
             { data: body }
         );
+        return await response.json() as Promise<T>;
     }
 
-    protected async put(endpoint: string, body: unknown) {
-        return this.request.put(
+    protected async put<T>(endpoint: string, body: unknown): Promise<T> {
+        const response = await this.request.put(
             `${Config.apiBaseUrl}${endpoint}`,
             { data: body }
         );
+        return await response.json() as Promise<T>;
     }
 }
