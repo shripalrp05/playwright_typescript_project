@@ -2,7 +2,9 @@ import { test, expect } from '@playwright/test';
 import { ProductService } from '../../../src/services/productService';
 import { ProductApiClient } from '../../../src/clients/api/productApiClient';
 
-test('GET /api/productsList returns a non-empty product list', async ({ request }) => {
+test('GET /api/productsList returns a non-empty product list', {
+  tag: ['@smoke', '@api'],
+}, async ({ request }) => {
   const client = new ProductApiClient(request);
   const service = new ProductService(client);
 

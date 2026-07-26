@@ -19,20 +19,28 @@ export default defineConfig({
     },
 
     projects: [
+        // API tests — any folder named "api", no browser
+        {
+            name: 'api',
+            testMatch: '**/api/**/*.spec.ts',
+        },
         {
             name: 'chromium',
+            testMatch: '**/ui/**/*.spec.ts',
             use: {
                 ...devices['Desktop Chrome']
             }
         },
         {
             name: 'firefox',
+            testMatch: '**/ui/**/*.spec.ts',
             use: {
                 ...devices['Desktop Firefox']
             }
         },
         {
             name: 'webkit',
+            testMatch: '**/ui/**/*.spec.ts',
             use: {
                 ...devices['Desktop Safari']
             }
