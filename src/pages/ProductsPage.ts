@@ -1,6 +1,6 @@
 import {Page, Locator} from '@playwright/test'; 
 
-export class MenuBar {
+export class ProductsPage {
     //#region Locators
     readonly page: Page;
     readonly searchBar: Locator;
