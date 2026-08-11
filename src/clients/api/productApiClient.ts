@@ -1,6 +1,7 @@
 import { BaseApiClient } from '../../core/network/baseApiClient';
 import { Products } from '../../core/config/constants/urls';
 import { GetProductsResponse } from '../../contracts/responses/product/GetProductsResponse';
+import { BodyType } from '../../core/network/api.types';
 
 export class ProductApiClient extends BaseApiClient {
     
@@ -8,7 +9,12 @@ export class ProductApiClient extends BaseApiClient {
         return this.get<GetProductsResponse>(Products.GetList);
     }
 
-    // async postToProductsList(body: unknown) {
-    //     return this.post(Products.PostToList, body);
-    // }
+    async searchProducts(query: string): Promise<GetProductsResponse> {
+        return this.post<GetProductsResponse>(
+            Products.Search,
+            { search_product: query },
+            BodyType.FORM
+        );
+    }
+
 }
