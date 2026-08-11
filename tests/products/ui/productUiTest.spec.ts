@@ -1,4 +1,4 @@
-import { test, expect } from '../../../src/core/fixtures/base';
+import { test, expect } from '../../../src/core/fixtures/ui.fixtures';
 
 test('should navigate to products via menu', {
   tag: ['@smoke', '@ui', '@product'],
