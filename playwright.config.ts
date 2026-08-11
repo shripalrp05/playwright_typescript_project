@@ -5,6 +5,8 @@ export default defineConfig({
     testDir: 'tests',
     outputDir: 'test-results',
 
+    timeout: 60000,
+
     reporter: [
         ['html', { open: 'never', outputFolder: 'playwright-report' }],
         ['list']
@@ -28,7 +30,7 @@ export default defineConfig({
             name: 'chromium',
             testMatch: [
                 '**/ui/**/*.spec.ts',
-                '**/hybrid/**/*.spec.ts'
+                '**/userjourney/**/*.spec.ts'
             ],
             use: {
                 ...devices['Desktop Chrome']
@@ -38,7 +40,7 @@ export default defineConfig({
             name: 'firefox',
             testMatch: [
                 '**/ui/**/*.spec.ts',
-                '**/hybrid/**/*.spec.ts'
+                '**/userjourney/**/*.spec.ts'
             ],
             use: {
                 ...devices['Desktop Firefox']
@@ -48,7 +50,7 @@ export default defineConfig({
             name: 'webkit',
             testMatch: [
                 '**/ui/**/*.spec.ts',
-                '**/hybrid/**/*.spec.ts'
+                '**/userjourney/**/*.spec.ts'
             ],
             use: {
                 ...devices['Desktop Safari']
